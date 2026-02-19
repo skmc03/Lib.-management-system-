@@ -1,0 +1,52 @@
+body {
+
+    font-family: Arial, sans-serif;
+
+    background-color: #f8f9fa;
+
+}
+
+
+.hero-section {
+
+    height: 500px;
+
+    background-image: url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+
+
+.hero-section h1 {
+
+    text-shadow: 2px 2px 5px black;
+
+}
+
+
+.feature-card {
+
+    transition: 0.3s;
+
+    cursor: pointer;
+
+}
+
+
+.feature-card:hover {
+
+    transform: translateY(-10px);
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+
+}
+
+
+footer {
+
+    margin-top: 50px;
+
+}
