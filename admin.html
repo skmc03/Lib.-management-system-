@@ -1,63 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard</title>
+    <title>Admin Dashboard</title>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
 <body>
 
-<nav class="navbar navbar-dark bg-dark p-3">
-<div class="container">
-<a class="navbar-brand fw-bold" href="index.html">
-<i class="fa-solid fa-book"></i> LibraryMS Admin
-</a>
-</div>
-</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+        <div class="container">
 
-<div class="container mt-5">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-book-open me-2"></i>LibraryMS
+            </a>
 
-<h2 class="text-center mb-5 fw-bold">Dashboard Overview</h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-<div class="row g-4 text-center">
+            <div class="collapse navbar-collapse" id="navMenu">
 
-<div class="col-md-4">
-<div class="card bg-primary text-white p-4 shadow">
-<i class="fa-solid fa-book fa-3x mb-3"></i>
-<h3>120</h3>
-<p>Total Books</p>
-</div>
-</div>
+                <ul class="navbar-nav ms-auto align-items-center">
 
-<div class="col-md-4">
-<div class="card bg-success text-white p-4 shadow">
-<i class="fa-solid fa-users fa-3x mb-3"></i>
-<h3>45</h3>
-<p>Registered Members</p>
-</div>
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            <i class="fa-solid fa-house me-1"></i> Home
+                        </a>
+                    </li>
 
-<div class="col-md-4">
-<div class="card bg-danger text-white p-4 shadow">
-<i class="fa-solid fa-exchange-alt fa-3x mb-3"></i>
-<h3>30</h3>
-<p>Books Issued</p>
-</div>
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="catalog.html">
+                            <i class="fa-solid fa-book me-1"></i> Catalog
+                        </a>
+                    </li>
 
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.html">
+                            <i class="fa-solid fa-user-plus me-1"></i> Register
+                        </a>
+                    </li>
 
-</div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="issue-return.html">
+                            <i class="fa-solid fa-right-left me-1"></i> Issue/Return
+                        </a>
+                    </li>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">
+                            <i class="fa-solid fa-chart-line me-1"></i> Admin
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            <i class="fa-solid fa-envelope me-1"></i> Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+
+        <h2 class="text-center mb-5 fw-bold">Dashboard Overview</h2>
+
+        <div class="row g-4 text-center">
+
+            <div class="col-md-4">
+                <div class="card bg-primary text-white p-4 shadow">
+                    <i class="fa-solid fa-book fa-3x mb-3"></i>
+                    <h3>120</h3>
+                    <p>Total Books</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-success text-white p-4 shadow">
+                    <i class="fa-solid fa-users fa-3x mb-3"></i>
+                    <h3>45</h3>
+                    <p>Registered Members</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card bg-danger text-white p-4 shadow">
+                    <i class="fa-solid fa-exchange-alt fa-3x mb-3"></i>
+                    <h3>30</h3>
+                    <p>Books Issued</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
