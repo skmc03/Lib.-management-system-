@@ -5,25 +5,44 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Library Management System</title>
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                url("https://images.unsplash.com/photo-1521587760476-6c12a4b040da");
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+        }
+
+        .stat-card {
+            border-radius: 15px;
+        }
+    </style>
 
 </head>
 
-
 <body>
 
+    <script>
+        if (localStorage.getItem("isLoggedIn") !== "true") {
+            window.location.href = "register.html";
+        }
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "register.html";
+        }
+    </script>
 
-    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
         <div class="container">
 
@@ -36,179 +55,168 @@
             </button>
 
             <div class="collapse navbar-collapse" id="navMenu">
-
                 <ul class="navbar-nav ms-auto align-items-center">
 
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">
-                            <i class="fa-solid fa-house me-1"></i> Home
-                        </a>
+                        <a class="nav-link active" href="index.html"><i class="fa-solid fa-house me-1"></i>Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="catalog.html">
-                            <i class="fa-solid fa-book me-1"></i> Catalog
-                        </a>
+                        <a class="nav-link" href="catalog.html"><i class="fa-solid fa-book me-1"></i>Catalog</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="register.html">
-                            <i class="fa-solid fa-user-plus me-1"></i> Register
-                        </a>
+                        <a class="nav-link" href="issue-return.html"><i
+                                class="fa-solid fa-right-left me-1"></i>Issue/Return</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="issue-return.html">
-                            <i class="fa-solid fa-right-left me-1"></i> Issue/Return
-                        </a>
+                        <a class="nav-link" href="admin.html"><i class="fa-solid fa-chart-line me-1"></i>Admin</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="admin.html">
-                            <i class="fa-solid fa-chart-line me-1"></i> Admin
-                        </a>
+                        <a class="nav-link" href="contact.html"><i class="fa-solid fa-envelope me-1"></i>Contact</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            <i class="fa-solid fa-envelope me-1"></i> Contact
-                        </a>
+                        <button onclick="logout()" class="btn btn-outline-light ms-3">
+                            <i class="fa-solid fa-right-from-bracket me-1"></i>Logout
+                        </button>
                     </li>
 
                 </ul>
-
             </div>
         </div>
     </nav>
 
-
-
-    <!-- HERO SECTION -->
+    <!-- HERO -->
     <section class="hero-section d-flex align-items-center text-center text-white">
-
         <div class="container">
-
-            <h1 class="display-3 fw-bold">
-                <i class="fa-solid fa-book-open-reader"></i>
-                Library Management System
-            </h1>
-
-            <p class="lead">
-                Manage books, members, and issue records efficiently
-            </p>
-
-            <a href="catalog.html" class="btn btn-primary btn-lg mt-3">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                Explore Catalog
+            <h1 class="display-3 fw-bold mb-4">Smart Library Management</h1>
+            <p class="lead mb-4">Digitally manage books, members, and issue records with efficiency and control.</p>
+            <a href="catalog.html" class="btn btn-primary btn-lg me-3">
+                <i class="fa-solid fa-magnifying-glass me-2"></i>Explore Books
             </a>
-
+            <a href="admin.html" class="btn btn-outline-light btn-lg">
+                <i class="fa-solid fa-chart-line me-2"></i>View Dashboard
+            </a>
         </div>
-
     </section>
 
+    <!-- STATS SECTION -->
+    <div class="container my-5">
+        <div class="row text-center g-4">
 
-
-    <!-- FEATURES SECTION -->
-    <div class="container mt-5">
-
-        <div class="row g-4">
-
-
-            <!-- BOOK CATALOG CARD -->
-            <div class="col-md-4">
-
-                <a href="catalog.html" class="text-decoration-none text-dark">
-
-                    <div class="card text-center shadow feature-card">
-
-                        <div class="card-body">
-
-                            <i class="fa-solid fa-book fa-3x text-primary mb-3"></i>
-
-                            <h4>Book Catalog</h4>
-
-                            <p>Browse and search available books</p>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
+            <div class="col-md-3">
+                <div class="card shadow p-4 stat-card">
+                    <i class="fa-solid fa-book fa-2x text-primary mb-2"></i>
+                    <h4>180+</h4>
+                    <p>Total Books</p>
+                </div>
             </div>
 
-
-
-            <!-- MEMBER MANAGEMENT CARD -->
-            <div class="col-md-4">
-
-                <a href="register.html" class="text-decoration-none text-dark">
-
-                    <div class="card text-center shadow feature-card">
-
-                        <div class="card-body">
-
-                            <i class="fa-solid fa-user fa-3x text-success mb-3"></i>
-
-                            <h4>Member Management</h4>
-
-                            <p>Register and manage members</p>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
+            <div class="col-md-3">
+                <div class="card shadow p-4 stat-card">
+                    <i class="fa-solid fa-users fa-2x text-success mb-2"></i>
+                    <h4>75+</h4>
+                    <p>Members</p>
+                </div>
             </div>
 
-
-
-            <!-- ADMIN DASHBOARD CARD -->
-            <div class="col-md-4">
-
-                <a href="admin.html" class="text-decoration-none text-dark">
-
-                    <div class="card text-center shadow feature-card">
-
-                        <div class="card-body">
-
-                            <i class="fa-solid fa-chart-column fa-3x text-danger mb-3"></i>
-
-                            <h4>Admin Dashboard</h4>
-
-                            <p>Track library performance</p>
-
-                        </div>
-
-                    </div>
-
-                </a>
-
+            <div class="col-md-3">
+                <div class="card shadow p-4 stat-card">
+                    <i class="fa-solid fa-exchange-alt fa-2x text-warning mb-2"></i>
+                    <h4>42</h4>
+                    <p>Books Issued</p>
+                </div>
             </div>
 
+            <div class="col-md-3">
+                <div class="card shadow p-4 stat-card">
+                    <i class="fa-solid fa-clock fa-2x text-danger mb-2"></i>
+                    <h4>8</h4>
+                    <p>Overdue</p>
+                </div>
+            </div>
 
         </div>
-
     </div>
 
+    <!-- FEATURES -->
+    <div class="container my-5">
+        <h2 class="text-center mb-5 fw-bold">Core Features</h2>
 
+        <div class="row g-4 text-center">
 
-    <!-- FOOTER -->
-    <footer class="bg-dark text-white text-center p-4 mt-5">
+            <div class="col-md-4">
+                <div class="card shadow p-4 h-100">
+                    <i class="fa-solid fa-book-open fa-3x text-primary mb-3"></i>
+                    <h4>Book Management</h4>
+                    <p>Add, update, categorize and track books efficiently.</p>
+                </div>
+            </div>
 
-        <p>
-            <i class="fa-solid fa-book"></i>
-            Library Management System
-        </p>
+            <div class="col-md-4">
+                <div class="card shadow p-4 h-100">
+                    <i class="fa-solid fa-user-gear fa-3x text-success mb-3"></i>
+                    <h4>Member Management</h4>
+                    <p>Register members and manage borrowing activity.</p>
+                </div>
+            </div>
 
+            <div class="col-md-4">
+                <div class="card shadow p-4 h-100">
+                    <i class="fa-solid fa-chart-pie fa-3x text-danger mb-3"></i>
+                    <h4>Analytics Dashboard</h4>
+                    <p>Monitor system usage, issued books, and overdue data.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- HOW IT WORKS -->
+    <div class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 fw-bold">How It Works</h2>
+
+            <div class="row text-center g-4">
+
+                <div class="col-md-4">
+                    <i class="fa-solid fa-user-plus fa-2x mb-3 text-primary"></i>
+                    <h5>1. Register Members</h5>
+                    <p>Add new members to the system.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="fa-solid fa-book fa-2x mb-3 text-success"></i>
+                    <h5>2. Manage Books</h5>
+                    <p>Add and categorize books in the catalog.</p>
+                </div>
+
+                <div class="col-md-4">
+                    <i class="fa-solid fa-right-left fa-2x mb-3 text-danger"></i>
+                    <h5>3. Issue & Return</h5>
+                    <p>Track book borrowing and return activity.</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="container text-center my-5">
+        <h3 class="mb-4">Ready to manage your library smarter?</h3>
+        <a href="catalog.html" class="btn btn-primary btn-lg">
+            Get Started Now
+        </a>
+    </div>
+
+    <footer class="bg-dark text-white text-center p-4">
+        <p class="mb-0"><i class="fa-solid fa-book"></i> Library Management System | 2026</p>
     </footer>
 
-
-
-    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
 
 </body>
 
