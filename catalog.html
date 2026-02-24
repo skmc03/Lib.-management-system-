@@ -23,6 +23,16 @@
     </style>
 
 </head>
+<script>
+    if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "register.html";
+    }
+
+    function logout() {
+        localStorage.removeItem("isLoggedIn");
+        window.location.href = "register.html";
+    }
+</script>
 
 <body>
 

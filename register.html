@@ -4,11 +4,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Login / Register</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            padding-top: 80px;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -25,9 +36,14 @@
         <div class="row justify-content-center">
             <div class="col-md-5">
 
-                <h2 class="text-center mb-4 fw-bold">Login to Your Account</h2>
+                <h2 class="text-center mb-4 fw-bold" id="formTitle">Login</h2>
 
-                <form id="loginForm" class="shadow p-5 bg-white rounded">
+                <form id="authForm" class="shadow p-5 bg-white rounded">
+
+                    <div class="mb-3 hidden" id="nameField">
+                        <label>Full Name</label>
+                        <input type="text" id="name" class="form-control">
+                    </div>
 
                     <div class="mb-3">
                         <label>Email</label>
@@ -41,17 +57,14 @@
 
                     <div id="errorMessage" class="text-danger mb-3"></div>
 
-                    <button type="submit" class="btn btn-primary w-100 py-2 mb-3">
+                    <button type="submit" class="btn btn-primary w-100 py-2 mb-3" id="submitBtn">
                         <i class="fa-solid fa-right-to-bracket me-2"></i>Login
                     </button>
 
-                    <div class="text-center mb-3">
-                        <small>Already have an account?</small>
+                    <div class="text-center">
+                        <small id="toggleText">Don't have an account?</small>
+                        <a href="#" onclick="toggleForm()" id="toggleLink">Register</a>
                     </div>
-
-                    <button type="button" class="btn btn-outline-danger w-100">
-                        <i class="fa-brands fa-google me-2"></i>Sign in with Google
-                    </button>
 
                 </form>
 
@@ -59,23 +72,55 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-
     <script>
-        document.getElementById("loginForm").addEventListener("submit", function (e) {
+        let isLogin = true;
+
+        function toggleForm() {
+            isLogin = !isLogin;
+
+            document.getElementById("formTitle").innerText = isLogin ? "Login" : "Create Account";
+            document.getElementById("submitBtn").innerHTML = isLogin
+                ? '<i class="fa-solid fa-right-to-bracket me-2"></i>Login'
+                : '<i class="fa-solid fa-user-plus me-2"></i>Create Account';
+
+            document.getElementById("toggleText").innerText = isLogin
+                ? "Don't have an account?"
+                : "Already have an account?";
+
+            document.getElementById("toggleLink").innerText = isLogin ? "Register" : "Login";
+
+            document.getElementById("nameField").classList.toggle("hidden");
+        }
+
+        document.getElementById("authForm").addEventListener("submit", function (e) {
             e.preventDefault();
 
+            const name = document.getElementById("name").value;
             const email = document.getElementById("email").value;
             const password = document.getElementById("password").value;
 
-            const validEmail = "admin@library.com";
-            const validPassword = "12345";
+            if (isLogin) {
+                const storedUser = JSON.parse(localStorage.getItem("user"));
 
-            if (email === validEmail && password === validPassword) {
+                if (!storedUser || storedUser.email !== email || storedUser.password !== password) {
+                    document.getElementById("errorMessage").innerText = "Invalid credentials.";
+                    return;
+                }
+
                 localStorage.setItem("isLoggedIn", "true");
                 window.location.href = "index.html";
+
             } else {
-                document.getElementById("errorMessage").innerText = "Invalid Email or Password";
+                if (!name) {
+                    document.getElementById("errorMessage").innerText = "Please enter your name.";
+                    return;
+                }
+
+                const user = { name, email, password };
+                localStorage.setItem("user", JSON.stringify(user));
+
+                alert("Account created successfully. Please login.");
+                toggleForm();
             }
         });
     </script>
